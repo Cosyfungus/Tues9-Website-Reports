@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MLLibrary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">acmclassifier-root</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.acmclassifier</a> &gt; <span class="el_source">MLLibrary.java</span></div><h1>MLLibrary.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.acmclassifier;
+
+import java.util.AbstractList;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Map.Entry;
+
+/**
+ * Provides the core mechanics for categorizing documents.
+ *
+ * @author tr29038
+ *
+ */
+<span class="fc" id="L14">public class MLLibrary</span>
+{
+<span class="fc" id="L16">    private static final Map&lt;Character, String&gt; DOCUMENT_CATEGORY_CORRESPONDENCES = initializeDocumentCategoryCorrespondences();</span>
+
+    /**
+     * Count the number of occurrences of each word contained in docWords.
+     *
+     * @param docWords container of words
+     *
+     * @return a correspondence of words and their number of occurrences in docWords
+     */
+    public Map&lt;String, Integer&gt; countWords(final AbstractList&lt;String&gt; docWords)
+    {
+<span class="fc" id="L27">        final Map&lt;String, Integer&gt; wordCounts = new Hashtable&lt;&gt;();</span>
+
+<span class="fc" id="L29">        docWords.forEach((word) -&gt; {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            if (wordCounts.get(word) == null)</span>
+            {
+                // first occurrence encountered of word
+<span class="fc" id="L33">                wordCounts.put(word, 1);</span>
+            }
+            else
+            {
+                // word has already been encountered
+                // increment its recorded occurrences
+<span class="fc" id="L39">                final Integer currentWordCount = wordCounts.get(word);</span>
+<span class="fc" id="L40">                wordCounts.replace(word, currentWordCount + 1);</span>
+            }
+<span class="fc" id="L42">        });</span>
+
+<span class="fc" id="L44">        return wordCounts;</span>
+    }
+
+    public static void normalization(Map&lt;String, Integer&gt; docArray)
+  {
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">  for (Map.Entry&lt;String, Integer&gt; entry : docArray.entrySet())</span>
+    {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		if(entry.getValue() &gt;= 5)</span>
+			{
+<span class="fc" id="L54">				entry.setValue(1);</span>
+			}
+		else
+<span class="fc" id="L57">			entry.setValue(0);</span>
+<span class="fc" id="L58">    }</span>
+<span class="fc" id="L59">  }</span>
+
+   /*public static float termWeight(Map&lt;String, Integer&gt; docArray, int totalDocs)
+  {
+  float docFrequency = 0;
+  for(int i = 0; i &lt; docArray.length; i++)
+   {
+    if(docArray[i] == 1)
+      docFrequency++;
+   }
+                ///System.out.print(docFrequency);
+  float termSignifigance = totalDocs/docFrequency;
+  return (float) (Math.log(termSignifigance)/Math.log(2));
+  } */
+
+
+    private static Map&lt;Character, String&gt; initializeDocumentCategoryCorrespondences()
+    {
+<span class="fc" id="L77">        final Map&lt;Character, String&gt; documentCategoryCorrespondences = new Hashtable&lt;&gt;();</span>
+
+<span class="fc" id="L79">        documentCategoryCorrespondences.put('A', &quot;General Literature&quot;);</span>
+<span class="fc" id="L80">        documentCategoryCorrespondences.put('B', &quot;Hardware&quot;);</span>
+<span class="fc" id="L81">        documentCategoryCorrespondences.put('C', &quot;Computer Systems Organization&quot;);</span>
+<span class="fc" id="L82">        documentCategoryCorrespondences.put('D', &quot;Software&quot;);</span>
+<span class="fc" id="L83">        documentCategoryCorrespondences.put('E', &quot;Data&quot;);</span>
+<span class="fc" id="L84">        documentCategoryCorrespondences.put('F', &quot;Theory of Computation&quot;);</span>
+<span class="fc" id="L85">        documentCategoryCorrespondences.put('G', &quot;Mathematics of Computing&quot;);</span>
+<span class="fc" id="L86">        documentCategoryCorrespondences.put('H', &quot;Information Systems&quot;);</span>
+<span class="fc" id="L87">        documentCategoryCorrespondences.put('I', &quot;Computing and Methodologies&quot;);</span>
+<span class="fc" id="L88">        documentCategoryCorrespondences.put('J', &quot;Computer Applications&quot;);</span>
+<span class="fc" id="L89">        documentCategoryCorrespondences.put('K', &quot;Computing Milieux&quot;);</span>
+
+<span class="fc" id="L91">        return documentCategoryCorrespondences;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

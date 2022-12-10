@@ -1,0 +1,168 @@
+
+------------------------------------------------------------
+Root project 'acmclassifier-root'
+------------------------------------------------------------
+
+allprojects: [root project 'acmclassifier-root']
+ant: org.gradle.api.internal.project.DefaultAntBuilder@5ca813de
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@1db33aff
+application: extension 'application'
+applicationDefaultJvmArgs: []
+applicationDistribution: org.gradle.api.internal.file.copy.DefaultCopySpec_Decorated@1904c25e
+applicationName: acmclassifier-root
+archivesBaseName: acmclassifier-root
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@7221447c
+asDynamicObject: DynamicObject for root project 'acmclassifier-root'
+autoTargetJvmDisabled: false
+bake: task ':bake'
+base: extension 'base'
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@6e8b8f05
+build: task ':build'
+buildDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build
+buildFile: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build.gradle
+buildHomePage: task ':buildHomePage'
+buildPath: :
+buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@6aeb24e9
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@55c20dd8
+check: task ':check'
+childProjects: {}
+class: class org.gradle.api.internal.project.DefaultProject_Decorated
+classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@3b7e1e1e
+classes: task ':classes'
+clean: task ':clean'
+clearPages: task ':clearPages'
+clonePagesReport: task ':clonePagesReport'
+compileJava: task ':compileJava'
+compileTestJava: task ':compileTestJava'
+components: SoftwareComponentInternal set
+configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@2d38a1b8
+configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@1ff9e0bd
+configurations: configuration container
+convention: org.gradle.internal.extensibility.DefaultConvention@2c0653c7
+copyAll: task ':copyAll'
+copyDocumentation: task ':copyDocumentation'
+copyJBakePagesForUse: task ':copyJBakePagesForUse'
+copyJBakeTemplates: task ':copyJBakeTemplates'
+copyReports: task ':copyReports'
+crossProjectModelAccess: org.gradle.api.internal.project.DefaultCrossProjectModelAccess@69ef2752
+defaultArtifacts: extension 'defaultArtifacts'
+defaultTasks: []
+deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@1b26eb6
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@511e8a35
+dependencyLocking: org.gradle.internal.locking.DefaultDependencyLockingHandler_Decorated@4f1863ba
+dependencyMetaDataProvider: org.gradle.internal.service.scopes.ProjectScopeServices$ProjectBackedModuleMetaDataProvider@5f5d08bc
+dependencyReport: task ':dependencyReport'
+depth: 0
+description: null
+detachedState: false
+displayName: root project 'acmclassifier-root'
+distTar: task ':distTar'
+distZip: task ':distZip'
+distributions: Distribution container
+distsDirName: distributions
+distsDirectory: extension 'base' property 'distsDirectory'
+docsDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\docs
+docsDirName: docs
+executableDir: bin
+ext: org.gradle.internal.extensibility.DefaultExtraPropertiesExtension@4d880a3f
+extensions: org.gradle.internal.extensibility.DefaultConvention@2c0653c7
+fileOperations: org.gradle.api.internal.file.DefaultFileOperations@68e27e99
+fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@646bd58c
+gradle: build 'acmclassifier-root'
+group: 
+htmlDependencyReport: task ':htmlDependencyReport'
+identityPath: :
+inheritedScope: org.gradle.internal.extensibility.ExtensibleDynamicObject$InheritedDynamicObject@53442955
+internalStatus: property(java.lang.Object, fixed(class java.lang.String, integration))
+jacoco: extension 'jacoco'
+jacocoAggregatedReport: task ':jacocoAggregatedReport'
+jacocoLogTestCoverage: task ':jacocoLogTestCoverage'
+jacocoTestReport: task ':jacocoTestReport'
+jar: task ':jar'
+java: extension 'java'
+javaToolchains: extension 'javaToolchains'
+javadoc: task ':javadoc'
+jbake: extension 'jbake'
+layout: org.gradle.api.internal.file.DefaultProjectLayout@5e1008f0
+libsDirName: libs
+libsDirectory: extension 'base' property 'libsDirectory'
+listenerBuildOperationDecorator: org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator@25fdb31d
+logger: org.gradle.internal.logging.slf4j.OutputEventListenerBackedLogger@667964c9
+logging: org.gradle.internal.logging.services.DefaultLoggingManager@1f00c59b
+mainClassName: null
+model: root project 'acmclassifier-root'
+modelIdentityDisplayName: null
+modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@6d7c49af
+name: acmclassifier-root
+normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@33759b78
+objects: org.gradle.api.internal.model.DefaultObjectFactory@7bd8a350
+owner: root project 'acmclassifier-root'
+parent: null
+parentIdentifier: null
+path: :
+pluginContext: false
+pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@62ed8dad
+plugins: [org.gradle.api.plugins.HelpTasksPlugin@5a1b1b0a, org.gradle.buildinit.plugins.BuildInitPlugin@3523f461, org.gradle.buildinit.plugins.WrapperPlugin@19c05c0a, org.gradle.language.base.plugins.LifecycleBasePlugin@3e005037, org.gradle.api.plugins.BasePlugin@76ecfc33, org.gradle.api.plugins.JvmEcosystemPlugin@73cac79d, org.gradle.api.plugins.ReportingBasePlugin@50dd49ba, org.gradle.api.plugins.JavaBasePlugin$Inject@58b3c21c, org.gradle.testing.base.plugins.TestSuiteBasePlugin@18f82a7f, org.gradle.api.plugins.JvmTestSuitePlugin@d3117bd, org.gradle.api.plugins.JavaPlugin@20580916, org.gradle.api.distribution.plugins.DistributionPlugin@2ca33a7e, org.gradle.api.plugins.ApplicationPlugin@1b7a078, org.gradle.testing.jacoco.plugins.JacocoPlugin@28025882, org.barfuin.gradle.jacocolog.JacocoLogPlugin@7e6accb, org.gradle.api.plugins.quality.PmdPlugin$Inject@2f760f81, com.github.spotbugs.snom.SpotBugsBasePlugin@175cc5fa, com.github.spotbugs.snom.SpotBugsPlugin@64616400, org.gradle.api.plugins.ProjectReportsPlugin@43de76f3, org.jbake.gradle.JBakePlugin@3599cac8, org.hidetake.gradle.ssh.plugin.SshPlugin@291ec9bb, com.github.jengelman.gradle.plugins.shadow.ShadowBasePlugin@172585b8, com.github.jengelman.gradle.plugins.shadow.ShadowJavaPlugin@194bd270, com.github.jengelman.gradle.plugins.shadow.ShadowApplicationPlugin@7f2f677f, com.github.jengelman.gradle.plugins.shadow.ShadowPlugin@15c1ca8c]
+pmd: extension 'pmd'
+pmdMain: task ':pmdMain'
+pmdTest: task ':pmdTest'
+processOperations: org.gradle.process.internal.DefaultExecActionFactory$DecoratingExecActionFactory@6d53916e
+processResources: task ':processResources'
+processTestResources: task ':processTestResources'
+project: root project 'acmclassifier-root'
+projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@726269e7
+projectDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9
+projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
+projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@4c9e96d8
+projectPath: :
+projectReport: task ':projectReport'
+projectReportDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\reports\project
+projectReportDirName: project
+projects: [root project 'acmclassifier-root']
+properties: {...}
+propertyReport: task ':propertyReport'
+providers: org.gradle.api.internal.provider.DefaultProviderFactory_Decorated@4290ea03
+proxies: Proxy container
+publicType: org.gradle.api.plugins.BasePluginConvention
+remotes: Remote container
+reporting: extension 'reporting'
+reportsAndDocumentation: task ':reportsAndDocumentation'
+reportsDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\reports
+repositories: repository container
+resources: org.gradle.api.internal.resources.DefaultResourceHandler@33b9dbde
+rootDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9
+rootProject: root project 'acmclassifier-root'
+rootScript: false
+script: false
+scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@5275b11f
+scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@6a65c5df
+serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$$Lambda$1201/0x000000080152c000@6d4afdba
+services: ProjectScopeServices
+setUpWebsite: task ':setUpWebsite'
+shadow: extension 'shadow'
+shadowDistTar: task ':shadowDistTar'
+shadowDistZip: task ':shadowDistZip'
+shadowJar: task ':shadowJar'
+sourceCompatibility: 11
+sourceSets: SourceSet container
+spotbugs: extension 'spotbugs'
+spotbugsMain: task ':spotbugsMain'
+spotbugsTest: task ':spotbugsTest'
+ssh: org.hidetake.groovy.ssh.core.Service@2f60fa62
+standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@1f00c59b
+state: project state 'EXECUTED'
+status: integration
+subprojects: []
+targetCompatibility: 11
+taskReport: task ':taskReport'
+taskThatOwnsThisObject: null
+tasks: task set
+test: task ':test'
+testClasses: task ':testClasses'
+testReportDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\reports\tests
+testReportDirName: tests
+testResultsDir: C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\test-results
+testResultsDirName: test-results
+testing: extension 'testing'
+updateGitHubPages: task ':updateGitHubPages'
+version: unspecified

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DocumentParserUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">acmclassifier-root</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.acmclassifier</a> &gt; <span class="el_source">DocumentParserUtils.java</span></div><h1>DocumentParserUtils.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.acmclassifier;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import java.util.AbstractList;
+import java.util.AbstractSet;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.HashSet;
+
+import org.apache.tika.exception.TikaException;
+import org.apache.tika.sax.BodyContentHandler;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.ParseContext;
+import org.apache.tika.parser.pdf.PDFParser;
+import org.apache.tika.parser.txt.TXTParser;
+
+import org.xml.sax.SAXException;
+
+
+/**
+ * Parse a document file into a document object.
+ * Strips any punctuation contained within the document and stores the document's words (in lower case) in a container.
+ * 
+ * @author tr29038
+ *
+ */
+public final class DocumentParserUtils
+{
+	// Supported file document extensions
+<span class="fc" id="L35">	private static final AbstractSet&lt;String&gt; SUPPORTED_FILE_EXTENSIONS = getSupportedFileExtensions();</span>
+
+	/**
+	 * Parse a document file's content into a document object.
+	 * 
+	 * @param filePath absolute or relative path to the file
+	 * @return document file as a document object
+	 */
+	public static Document parse(final String filePath) throws FileNotFoundException, IOException, SAXException, TikaException, IllegalArgumentException
+	{
+<span class="fc" id="L45">        String contents = readFile(filePath);</span>
+<span class="fc" id="L46">        contents = convertToLowerCase(contents);</span>
+<span class="fc" id="L47">        final AbstractList&lt;String&gt; words = convertToWords(contents);</span>
+		
+<span class="fc" id="L49">        return new Document(words);</span>
+	}
+	
+	/**
+	 * Read file into string format.
+	 * 
+	 * @param filePath absolute or relative path to a document file
+	 * @return document file in string format
+	 * @throws FileNotFoundException if filePath is invalid or filePath is terminated with an unsupported file extension.
+	 */
+	private static String readFile(final String filePath) throws FileNotFoundException, IOException, SAXException, TikaException, IllegalArgumentException
+	{
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if (!isSupportedFile(filePath))</span>
+        {
+<span class="fc" id="L63">			throw new IllegalArgumentException(&quot;Unsupported file type detected.&quot;);</span>
+        }
+
+        // BufferedInputStream is used here to guarantee that newline characters are read in
+        // newline characters must be read in in case a line ends with a word and the following line starts with a word (no punctuation in between)
+        // the newline character acts as a delimiter between words, so words read in under the aforementioned scenario are not combined
+<span class="fc" id="L69">        final BufferedInputStream fileStream = new BufferedInputStream(new FileInputStream(filePath));</span>
+
+        // stores the content retrieved from the provided file
+<span class="fc" id="L72">        final BodyContentHandler contentHandler = new BodyContentHandler();</span>
+
+        // document metadata
+<span class="fc" id="L75">        final Metadata meta = new Metadata();</span>
+
+        // used by Tika for parsing purposes
+<span class="fc" id="L78">        final ParseContext context = new ParseContext();</span>
+
+<span class="pc bpc" id="L80" title="1 of 4 branches missed.">        if (SUPPORTED_FILE_EXTENSIONS.contains(&quot;.pdf&quot;) &amp;&amp; filePath.endsWith(&quot;.pdf&quot;))</span>
+        {
+<span class="fc" id="L82">            final PDFParser pdfParser = new PDFParser();</span>
+<span class="fc" id="L83">            pdfParser.parse(fileStream, contentHandler, meta, context);</span>
+<span class="fc" id="L84">        }</span>
+        else // is .txt file
+        {
+<span class="fc" id="L87">            final TXTParser txtParser = new TXTParser();</span>
+<span class="fc" id="L88">            txtParser.parse(fileStream, contentHandler, meta, context);</span>
+        }
+
+<span class="fc" id="L91">        fileStream.close();</span>
+
+<span class="fc" id="L93">        return contentHandler.toString();</span>
+	}
+	
+	/**
+	 * Convert document content to lower case.
+	 * 
+	 * @param contents document contents
+	 * 
+	 * @return all contents in lower case
+	 */
+	private static String convertToLowerCase(final String contents)
+	{
+<span class="fc" id="L105">		return contents.toLowerCase(Locale.US);</span>
+	}
+	
+	/**
+	 * Create a list of words contained within contents.
+	 * All non-alphabetic characters in contents will be ignored.
+	 * 
+	 * @param contents the string to retrieve the words from
+	 * @return a container containing each word stripped from contents
+	 */
+	private static AbstractList&lt;String&gt; convertToWords(final String contents)
+	{
+<span class="fc" id="L117">		final AbstractList&lt;String&gt; fileWords = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L118">		final StringBuilder wordBuilder = new StringBuilder(); // used to store the current word being stripped from contents</span>
+
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		for (int i = 0; i &lt; contents.length(); ++i)</span>
+		{
+<span class="fc" id="L122">			final Character currentChar = contents.charAt(i);</span>
+			
+<span class="fc bfc" id="L124" title="All 2 branches covered.">			if (Character.isAlphabetic(currentChar))</span>
+			{
+<span class="fc" id="L126">				wordBuilder.append(currentChar);</span>
+			}
+<span class="pc bpc" id="L128" title="1 of 4 branches missed.">			else if (!Character.isAlphabetic(currentChar) &amp;&amp; wordBuilder.length() &gt; 0) // reset current word and ignore punctuation</span>
+			{
+<span class="fc" id="L130">				fileWords.add(wordBuilder.toString());</span>
+<span class="fc" id="L131">				wordBuilder.replace(0, wordBuilder.length(), &quot;&quot;); // prepare to build next word</span>
+			}
+		}
+		
+		// is only executed if the last word in the document is not proceed by any non-alphabetic character
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		if (wordBuilder.length() &gt; 0)</span>
+		{
+<span class="nc" id="L138">			fileWords.add(wordBuilder.toString());</span>
+		}
+		
+<span class="fc" id="L141">		return fileWords;</span>
+	}
+	
+	/**
+	 * Check if filePath routes to a supported file type.
+	 * 
+	 * @param filePath absolute or relative file path
+	 * 
+	 * @return whether filePath is a supported file path or not
+	 */
+	private static Boolean isSupportedFile(final String filePath)
+	{
+<span class="fc" id="L153">        final int indexOfPeriod = filePath.lastIndexOf('.');</span>
+
+<span class="fc" id="L155">        final String filePathExtension = filePath.substring(indexOfPeriod);</span>
+
+<span class="fc" id="L157">        return SUPPORTED_FILE_EXTENSIONS.contains(filePathExtension);</span>
+	}
+
+    /**
+     * Initialize the supported file extensions container.
+     *
+     * @return supported file extensions container
+     */
+    private static AbstractSet&lt;String&gt; getSupportedFileExtensions()
+    {
+<span class="fc" id="L167">        final AbstractSet&lt;String&gt; supportedFileExtensions = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L168">        supportedFileExtensions.add(&quot;.pdf&quot;);</span>
+<span class="fc" id="L169">        supportedFileExtensions.add(&quot;.txt&quot;);</span>
+
+<span class="fc" id="L171">        return supportedFileExtensions;</span>
+    }
+
+    // utility classes require private constructor
+    private DocumentParserUtils() { }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

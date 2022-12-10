@@ -1,0 +1,398 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		acmclassifier-root (spotbugsMain)</p>
+      <p>SpotBugs version: 4.5.3</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\ClassifyDriver.class</li>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\Document.class</li>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\DocumentParserUtils.class</li>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\MLLibrary.class</li>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\ParserUtils.class</li>
+         <li>C:\Users\thmir\Desktop\Document-Categorization-Tues9\build\classes\java\main\edu\odu\cs\cs350\acmclassifier\TrainerDriver.class</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>170 lines of code analyzed,
+	in 6 classes, 
+	in 1 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right">3</td>
+            <td align="right">17.65</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">7</td>
+            <td align="right">41.18</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>10</b>
+            </td>
+            <td align="right">
+               <b>58.82</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_I18N">Internationalization Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_I18N">Internationalization Warnings</a>
+            </td>
+            <td align="right">3</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+            </td>
+            <td align="right">1</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+            </td>
+            <td align="right">5</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>9</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_I18N">Internationalization Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e160');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.acmclassifier.ClassifyDriver.getPath(): new java.io.InputStreamReader(InputStream)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e160" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.ClassifyDriver<br/>In method edu.odu.cs.cs350.acmclassifier.ClassifyDriver.getPath()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At ClassifyDriver.java:[line 58]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e240');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.acmclassifier.TrainerDriver.getCategory(): new java.io.InputStreamReader(InputStream)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e240" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.TrainerDriver<br/>In method edu.odu.cs.cs350.acmclassifier.TrainerDriver.getCategory()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At TrainerDriver.java:[line 79]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e255');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.acmclassifier.TrainerDriver.getPath(): new java.io.InputStreamReader(InputStream)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e255" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.TrainerDriver<br/>In method edu.odu.cs.cs350.acmclassifier.TrainerDriver.getPath()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At TrainerDriver.java:[line 65]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e175');">
+            <td>
+               <span class="priority-2">EI2</span>
+            </td>
+            <td>new edu.odu.cs.cs350.acmclassifier.Document(AbstractList) may expose internal representation by storing an externally mutable object into Document.words</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e175" style="display: none;">
+                  <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.Document<br/>In method new edu.odu.cs.cs350.acmclassifier.Document(AbstractList)<br/>Field edu.odu.cs.cs350.acmclassifier.Document.words<br/>Local variable named docWords<br/>At Document.java:[line 19]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_STYLE">Dodgy code Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e131');">
+            <td>
+               <span class="priority-2">DCN</span>
+            </td>
+            <td>Do not catch NullPointerException like in edu.odu.cs.cs350.acmclassifier.ClassifyDriver.validatePath(String)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e131" style="display: none;">
+                  <a href="#DCN_NULLPOINTER_EXCEPTION">Bug type DCN_NULLPOINTER_EXCEPTION (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.ClassifyDriver<br/>In method edu.odu.cs.cs350.acmclassifier.ClassifyDriver.validatePath(String)<br/>At ClassifyDriver.java:[line 83]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e193');">
+            <td>
+               <span class="priority-2">DCN</span>
+            </td>
+            <td>Do not catch NullPointerException like in edu.odu.cs.cs350.acmclassifier.TrainerDriver.validatePath(String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e193" style="display: none;">
+                  <a href="#DCN_NULLPOINTER_EXCEPTION">Bug type DCN_NULLPOINTER_EXCEPTION (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.TrainerDriver<br/>In method edu.odu.cs.cs350.acmclassifier.TrainerDriver.validatePath(String)<br/>At TrainerDriver.java:[line 100]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e143');">
+            <td>
+               <span class="priority-2">DLS</span>
+            </td>
+            <td>Dead store to $L1 in edu.odu.cs.cs350.acmclassifier.ClassifyDriver.main(String[])</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e143" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.ClassifyDriver<br/>In method edu.odu.cs.cs350.acmclassifier.ClassifyDriver.main(String[])<br/>Local variable stored in JVM register 1<br/>At ClassifyDriver.java:[line 35]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e205');">
+            <td>
+               <span class="priority-2">DLS</span>
+            </td>
+            <td>Dead store to $L1 in edu.odu.cs.cs350.acmclassifier.TrainerDriver.main(String[])</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e205" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.TrainerDriver<br/>In method edu.odu.cs.cs350.acmclassifier.TrainerDriver.main(String[])<br/>Local variable stored in JVM register 1<br/>At TrainerDriver.java:[line 41]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e222');">
+            <td>
+               <span class="priority-2">DLS</span>
+            </td>
+            <td>Dead store to category in edu.odu.cs.cs350.acmclassifier.TrainerDriver.main(String[])</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e222" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.acmclassifier.TrainerDriver<br/>In method edu.odu.cs.cs350.acmclassifier.TrainerDriver.main(String[])<br/>Local variable named category<br/>At TrainerDriver.java:[line 39]</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="DCN_NULLPOINTER_EXCEPTION">DCN_NULLPOINTER_EXCEPTION: NullPointerException caught</a>
+      </h2>
+   
+<p>
+According to SEI Cert rule <a href="https://wiki.sei.cmu.edu/confluence/display/java/ERR08-J.+Do+not+catch+NullPointerException+or+any+of+its+ancestors">ERR08-J</a> NullPointerException should not be caught. Handling NullPointerException is considered an inferior alternative to null-checking.
+<p>
+This non-compliant code catches a NullPointerException to see if an incoming parameter is null:
+</p>
+<pre><code>
+boolean hasSpace(String m) {
+  try {
+    String ms[] = m.split(" ");
+    return names.length != 1;
+  } catch (NullPointerException e) {
+    return false;
+  }
+}
+</code></pre>
+<p>
+A compliant solution would use a null-check as in the following example:
+</p>
+<pre><code>
+boolean hasSpace(String m) {
+    if (m == null) return false;
+    String ms[] = m.split(" ");
+    return names.length != 1;
+}
+</code></pre>
+    
+     <h2>
+         <a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+      </h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    <h2>
+         <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+      </h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      <h2>
+         <a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+      </h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    </body>
+</html>

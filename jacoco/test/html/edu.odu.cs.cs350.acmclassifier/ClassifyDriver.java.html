@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClassifyDriver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">acmclassifier-root</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.acmclassifier</a> &gt; <span class="el_source">ClassifyDriver.java</span></div><h1>ClassifyDriver.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.acmclassifier;
+
+import java.lang.String;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import org.apache.tika.exception.TikaException;
+import org.xml.sax.SAXException;
+
+	/*
+	 * Driver to classify documents
+	 * 
+	 * @author Justin Jenkins
+	 */
+<span class="nc" id="L17">public class ClassifyDriver</span>
+{
+	/*
+	 * Retrieves the file path for the document(s) to be classified
+	 * Runs necessary functions from other classes
+	 * 
+	 * @param args should be paths to each file to be classified
+	 *
+	 * @author Justin Jenkins
+	 */
+    public static void main(String[] args) throws FileNotFoundException, IOException, SAXException, TikaException, IllegalArgumentException
+	{
+		Document doc;
+		//if no args are passed it will accept a path from console input
+<span class="nc bnc" id="L31" title="All 2 branches missed.">		if (args.length == 0)</span>
+		{
+<span class="nc" id="L33">			String path = getPath();</span>
+
+<span class="nc bnc" id="L35" title="All 2 branches missed.">			if(validatePath(path)) {doc = DocumentParserUtils.parse(path);}</span>
+<span class="nc" id="L36">		}</span>
+		//will process each argument given
+		else
+		{
+<span class="nc bnc" id="L40" title="All 2 branches missed.">			for (String path : args)</span>
+			{
+<span class="nc bnc" id="L42" title="All 2 branches missed.">				if(validatePath(path)) {doc = DocumentParserUtils.parse(path);}</span>
+			}
+		}
+
+<span class="nc" id="L46">		System.out.println(&quot;Placeholder&quot;);</span>
+<span class="nc" id="L47">	}</span>
+	
+	/*
+	 * Function to grab a file path from console-based input
+	 * 
+	 * @return returns path given from console input
+	 * 
+	 * @author Justin Jenkins
+	 */
+	public static String getPath() throws IOException
+	{
+<span class="fc" id="L58">		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="fc" id="L59">		String path = reader.readLine();</span>
+<span class="fc" id="L60">		return path;</span>
+	}
+	/*
+	 * Validates that the path leads to a valid file that can be read
+	 * Checks if document is longer than '50 pages' (150 thousand characters)
+	 * 
+	 * @param path to the file
+	 * @author Justin Jenkins
+	 */
+	private static boolean validatePath(String path)
+	{
+		try {
+<span class="nc" id="L72">			File testFile = new File(path);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			if (testFile.canRead() == false)</span>
+			{
+<span class="nc" id="L75">				System.out.println(path + &quot; cannot be read.&quot;);</span>
+<span class="nc" id="L76">				return false;</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			}else if (testFile.length() &gt; 150000)</span>
+			{
+<span class="nc" id="L79">				System.out.println(path + &quot; is longer than 50 pages&quot;);</span>
+<span class="nc" id="L80">				return false;</span>
+			}
+		
+<span class="nc" id="L83">		}catch (NullPointerException e)</span>
+			{ 
+<span class="nc" id="L85">				System.out.println(path + &quot; was Null.&quot; + e.toString());</span>
+<span class="nc" id="L86">				return false;</span>
+<span class="nc" id="L87">			}</span>
+<span class="nc" id="L88">		return true;</span>
+	}
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrainerDriver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">acmclassifier-root</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.acmclassifier</a> &gt; <span class="el_source">TrainerDriver.java</span></div><h1>TrainerDriver.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.acmclassifier;
+
+import java.lang.String;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import org.apache.tika.exception.TikaException;
+import org.xml.sax.SAXException;
+
+/*
+	 * Driver to Improve Training Data 
+	 * 
+	 * @author Justin Jenkins
+	 */
+<span class="nc" id="L17">public class TrainerDriver {</span>
+    
+    	/*
+	 * Retrieves the file path for the document(s) to be classified
+     * as well as training data for the ML section
+     * 
+     * For now the same as ClassifyDriver and will be modified when I know how
+     * the training data will come in
+     * 
+	 * Runs necessary functions from other classes
+	 * 
+	 * @param args should be paths to each file to be classified
+	 *
+	 * @author Justin Jenkins
+	 */
+    public static void main(String[] args) throws FileNotFoundException, IOException, SAXException, TikaException, IllegalArgumentException
+	{
+		Document doc;
+		//if no args are passed it will accept a path from console input
+<span class="nc bnc" id="L36" title="All 2 branches missed.">		if (args.length == 0)</span>
+		{
+<span class="nc" id="L38">			String path = getPath();</span>
+<span class="nc" id="L39">			String category = getCategory(); //for future use on trainer</span>
+
+<span class="nc bnc" id="L41" title="All 2 branches missed.">			if(validatePath(path)) {doc = DocumentParserUtils.parse(path);}</span>
+			
+<span class="nc" id="L43">		}</span>
+		//will process each argument given
+		else
+		{
+<span class="nc bnc" id="L47" title="All 2 branches missed.">			for (String path : args)</span>
+			{
+<span class="nc bnc" id="L49" title="All 2 branches missed.">				if(validatePath(path)) {doc = DocumentParserUtils.parse(path);}</span>
+			}
+		}
+
+
+<span class="nc" id="L54">		System.out.println(&quot;Placeholder&quot;);</span>
+<span class="nc" id="L55">	}</span>
+    /* Function to grab a file path from console-based input
+    * 
+    * @return returns path given from console input
+    * 
+    * @author Justin Jenkins
+    */
+    public static String getPath() throws IOException
+	{
+<span class="fc" id="L64">		System.out.println(&quot;Enter a Path: &quot;);</span>
+<span class="fc" id="L65">		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="fc" id="L66">		String path = reader.readLine();</span>
+<span class="fc" id="L67">		return path;</span>
+	}
+
+	/*Function to grab the category for training crom console-based input
+	 * 
+	 * @return returns path given from console input
+	 * 
+	 * @author Justin Jenkins
+	 */
+	public static String getCategory() throws IOException
+	{
+<span class="fc" id="L78">		System.out.println(&quot;Enter the category: &quot;);</span>
+<span class="fc" id="L79">		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="fc" id="L80">		String category = reader.readLine();</span>
+<span class="fc" id="L81">		return category;</span>
+	}
+
+	/*
+	 * Validates that the path leads to a valid file that can be read
+	 * 
+	 * @param path to the file
+	 * @author Justin Jenkins
+	 */
+	private static boolean validatePath(String path)
+	{
+		try {
+<span class="nc" id="L93">			File testFile = new File(path);</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">			if (testFile.canRead() == false)</span>
+			{
+<span class="nc" id="L96">				System.out.println(&quot;File cannot be read.&quot;);</span>
+<span class="nc" id="L97">				return false;</span>
+			}
+		
+<span class="nc" id="L100">		}catch (NullPointerException e)</span>
+			{ 
+<span class="nc" id="L102">				System.out.println(&quot;Path was null.&quot; + e.toString());</span>
+<span class="nc" id="L103">				return false;</span>
+<span class="nc" id="L104">			}</span>
+<span class="nc" id="L105">		return true;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
