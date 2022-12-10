@@ -2,8 +2,8 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.21.0" timestamp="2022-12-09T18:47:55.579">
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\Classifier.java">
+    version="6.21.0" timestamp="2022-12-09T19:04:54.958">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/Classifier.java">
 <violation beginline="3" endline="3" begincolumn="1" endcolumn="37" rule="UnusedImports" ruleset="Best Practices" package="edu.odu.cs.cs350.acmclassifier" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
 Avoid unused imports such as 'java.io.FileNotFoundException'
 </violation>
@@ -29,7 +29,7 @@ Avoid unused imports such as 'org.apache.tika.exception.TikaException'
 Avoid unused imports such as 'org.xml.sax.SAXException'
 </violation>
 </file>
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\ClassifyDriver.java">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/ClassifyDriver.java">
 <violation beginline="3" endline="3" begincolumn="1" endcolumn="24" rule="DontImportJavaLang" ruleset="Code Style" package="edu.odu.cs.cs350.acmclassifier" class="ClassifyDriver" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_codestyle.html#dontimportjavalang" priority="4">
 Avoid importing anything from the package java.lang
 </violation>
@@ -115,7 +115,7 @@ System.out.println is used
 A method should have only one exit point, and that should be the last statement in the method
 </violation>
 </file>
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\DocumentParserUtils.java">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/DocumentParserUtils.java">
 <violation beginline="4" endline="4" begincolumn="1" endcolumn="20" rule="UnusedImports" ruleset="Best Practices" package="edu.odu.cs.cs350.acmclassifier" class="DocumentParserUtils" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
 Avoid unused imports such as 'java.io.File'
 </violation>
@@ -138,7 +138,7 @@ Ensure that resources like this BufferedInputStream object are closed after use
 Avoid excessively long variable names like supportedFileExtensions
 </violation>
 </file>
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\MLLibrary.java">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/MLLibrary.java">
 <violation beginline="6" endline="6" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Best Practices" package="edu.odu.cs.cs350.acmclassifier" class="MLLibrary" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
 Avoid unused imports such as 'java.util.Map.Entry'
 </violation>
@@ -170,7 +170,7 @@ This statement should have braces
 Avoid excessively long variable names like documentCategoryCorrespondences
 </violation>
 </file>
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\ParserUtils.java">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/ParserUtils.java">
 <violation beginline="14" endline="14" begincolumn="169" endcolumn="192" rule="AvoidUncheckedExceptionsInSignatures" ruleset="Design" package="edu.odu.cs.cs350.acmclassifier" class="ParserUtils" method="getStopWords" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_design.html#avoiduncheckedexceptionsinsignatures" priority="3">
 A method or constructor should not explicitly declare unchecked exceptions in its 'throws' clause
 </violation>
@@ -181,7 +181,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 </file>
-<file name="C:\Users\thmir\Desktop\Document-Categorization-Tues9\src\main\java\edu\odu\cs\cs350\acmclassifier\TrainerDriver.java">
+<file name="/Users/cosyfungus/Document-Categorization/Document-Categorization-Tues9/src/main/java/edu/odu/cs/cs350/acmclassifier/TrainerDriver.java">
 <violation beginline="3" endline="3" begincolumn="1" endcolumn="24" rule="DontImportJavaLang" ruleset="Code Style" package="edu.odu.cs.cs350.acmclassifier" class="TrainerDriver" externalInfoUrl="https://pmd.github.io/pmd-6.21.0/pmd_rules_java_codestyle.html#dontimportjavalang" priority="4">
 Avoid importing anything from the package java.lang
 </violation>
